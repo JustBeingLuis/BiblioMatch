@@ -1,0 +1,33 @@
+<!-- core/templates/base.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Bibliomatch{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    {% load socialaccount %}  <!-- Necesario para provider_login_url -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body class="bg-gray-100 text-gray-900 min-h-screen flex flex-col">
+    <header class="bg-white shadow-md p-4">
+        <div class="container mx-auto flex justify-between">
+            <h1 class="text-xl font-bold">📚 Bibliomatch</h1>
+            <nav>
+                <!-- Botones de navegación -->
+                <a href="{% provider_login_url 'google' %}" class="mx-2 text-blue-600 hover:underline">Iniciar sesión</a>
+                <a href="{% url 'account_signup' %}" class="mx-2 text-blue-600 hover:underline">Registrarse</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow container mx-auto py-6">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="bg-white border-t mt-8 py-4 text-center text-sm">
+        &copy; 2025 Bibliomatch. Todos los derechos reservados.
+    </footer>
+</body>
+</html>
