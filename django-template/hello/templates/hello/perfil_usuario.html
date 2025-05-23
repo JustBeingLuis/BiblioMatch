@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi Perfil</title>
+    <link rel="stylesheet" href="{% static 'hello/perfil_usuario.css' %}">
+    <link rel="stylesheet" href="{% static 'hello/global_base.css' %}">
+</head>
+<body>
+    <div class="perfil-container">
+        <h2>Mi Perfil</h2>
+        <div class="perfil-info">
+            <p><strong>Usuario:</strong> {{ usuario.username }}</p>
+            <p><strong>Nombre:</strong> {{ usuario.first_name }}</p>
+            <p><strong>Correo:</strong> {{ usuario.email }}</p>
+        </div>
+        <div class="perfil-btns">
+            <a href="{% url 'editar_perfil' %}" class="perfil-btn">Editar Perfil</a>
+            <a href="{% url 'home' %}" class="volver-btn">← Volver a inicio</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Redactar Reseña</title>
+    <link rel="stylesheet" href="{% static 'hello/resenas.css' %}">
+    <link rel="stylesheet" href="{% static 'hello/global_base.css' %}">
+    <script src="{% static 'hello/estrellas.js' %}" defer></script>
+</head>
+<body>
+    <div class="resena-main">
+        <div class="resena-form-card">
+            <h2 class="resena-titulo">Redactar Reseña</h2>
+            <a href="{% url 'home' %}" class="btn-home">← Volver a inicio</a>
+            <a href="{% url 'mis_resenas' %}" class="btn-home">Ver mis reseñas</a>
+            {% if mensaje_exito %}
+                <div class="mensaje-exito">{{ mensaje_exito }}</div>
+            {% endif %}
+            <form method="post">
+                {% csrf_token %}
+                {{ form.libro.label_tag }}{{ form.libro }}
+                {{ form.comentario.label_tag }}{{ form.comentario }}
+                <label for="id_calificacion">Calificación:</label>
+                <div class="star-rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+                {{ form.calificacion }}
+                <button type="submit" class="btn btn-resena">Enviar Reseña</button>
+            </form>
+            <div class="resena-reglas">
+                <strong>REGLAS para una buena reseña</strong>
+                <ul>
+                    <li>Resume brevemente la idea general del libro.</li>
+                    <li>Comenta qué te gustó o no y por qué.</li>
+                    <li>Evita spoilers o notifícalos si los incluyes.</li>
+                    <li>Usa un lenguaje respetuoso y académico.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        © 2025 Biblioteca Digital
+    </div>
+</body>
+</html>

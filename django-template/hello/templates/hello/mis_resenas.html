@@ -1,0 +1,18 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'hello/global_base.css' %}">
+<link rel="stylesheet" href="{% static 'hello/mis_resenas.css' %}">
+<div class="resena-main">
+    <h2>Mis Reseñas</h2>
+    <a href="{% url 'crear_resena' %}" class="btn-home">← Volver a reseñas</a>
+    <ul>
+        {% for resena in resenas %}
+        <li>
+            <strong>{{ resena.libro.titulo }}</strong> - {{ resena.comentario|truncatechars:60 }}
+            <a href="{% url 'editar_resena' resena.id %}" class="btn btn-resena">Editar</a>
+            <a href="{% url 'eliminar_resena' resena.id %}" class="btn btn-resena">Eliminar</a>
+        </li>
+        {% empty %}
+        <li>No has escrito ninguna reseña aún.</li>
+        {% endfor %}
+    </ul>
+</div>

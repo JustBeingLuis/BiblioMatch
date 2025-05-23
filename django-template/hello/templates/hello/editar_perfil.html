@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Perfil</title>
+    <link rel="stylesheet" href="{% static 'hello/registro.css' %}">
+    <link rel="stylesheet" href="{% static 'hello/global_base.css' %}">
+</head>
+<body>
+    <div class="registro-container">
+        <h2>Editar Perfil</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn">Guardar Cambios</button>
+        </form>
+        <a href="{% url 'perfil_usuario' %}" class="btn-home">← Volver a perfil</a>
+    </div>
+</body>
+</html>

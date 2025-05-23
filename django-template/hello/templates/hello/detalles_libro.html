@@ -1,0 +1,26 @@
+{% extends 'hello/layout.html' %}
+{% load static %}
+{% block title %}Detalles del Libro{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'hello/resenas.css' %}">
+<h2>{{ libro.titulo }} - {{ libro.autor }}</h2>
+{% if libro.portada %}
+    <img src="{{ libro.portada.url }}" alt="Portada" style="width:180px;">
+{% endif %}
+<p><strong>Promedio de calificación:</strong> {{ promedio|floatformat:1 }} / 5</p>
+<a href="{% url 'crear_resena' %}?libro={{ libro.id }}" class="btn">Escribir reseña</a>
+<hr>
+<h3>Reseñas</h3>
+{% if resenas %}
+    {% for resena in resenas %}
+        <div style="border-bottom:1px solid #eee; margin-bottom:12px; padding-bottom:8px;">
+            <strong>{{ resena.usuario.username }}</strong> - 
+            <span>Calificación: {{ resena.calificacion }} ⭐</span>
+            <p>{{ resena.comentario }}</p>
+            <span style="color:#888; font-size:0.9em;">{{ resena.fecha|date:"d/m/Y H:i" }}</span>
+        </div>
+    {% endfor %}
+{% else %}
+    <p>No hay reseñas para este libro.</p>
+{% endif %}
+{% endblock %}

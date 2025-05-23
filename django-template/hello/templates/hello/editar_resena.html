@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Reseña</title>
+    <link rel="stylesheet" href="{% static 'hello/resenas.css' %}">
+    <link rel="stylesheet" href="{% static 'hello/global_base.css' %}">
+</head>
+<body>
+    <div class="resena-main">
+        <div class="resena-form-card">
+            <h2>Editar Reseña</h2>
+            <form method="post">
+                {% csrf_token %}
+                <p><strong>Libro:</strong> {{ resena.libro.titulo }}</p>
+                <input type="hidden" name="libro" value="{{ resena.libro.id }}">
+                {{ form.comentario.label_tag }}{{ form.comentario }}
+                <button type="submit" class="btn">Guardar Cambios</button>
+            </form>
+            <a href="{% url 'mis_resenas' %}" class="btn-home">← Volver a mis reseñas</a>
+        </div>
+    </div>
+</body>
+</html>

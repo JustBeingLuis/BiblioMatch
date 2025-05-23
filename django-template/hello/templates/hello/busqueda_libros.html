@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Búsqueda de Libros</title>
+    <link rel="stylesheet" href="{% static 'hello/busqueda_libros.css' %}">
+    <link rel="stylesheet" href="{% static 'hello/global_base.css' %}">
+</head>
+<body>
+    <div class="busqueda-container">
+        <h2>Búsqueda de Libros</h2>
+        <a href="{% url 'home' %}" class="btn-home">← Volver a inicio</a>
+        <form method="get" class="busqueda-form">
+            <input type="text" name="q" placeholder="Buscar por título, autor o palabra clave" value="{{ query }}">
+            <button type="submit">Buscar</button>
+        </form>
+        <ul class="resultados-lista">
+            {% for libro in resultados %}
+                <li class="libro-item">
+                    {% if libro.portada %}
+                        <img class="portada-libro" src="{{ libro.portada.url }}" alt="Portada de {{ libro.titulo }}">
+                    {% endif %}
+                    <div class="info-libro">
+                        <strong class="titulo-libro">{{ libro.titulo }}</strong><br>
+                        <span class="autor-libro">{{ libro.autor }}</span><br>
+                        <button class="btn-detalles" type="button" data-libro-id="{{ libro.id }}">Ver detalles</button>
+                    </div>
+                </li>
+            {% empty %}
+                <li>No se encontraron libros.</li>
+            {% endfor %}
+        </ul>
+        <!-- Modal para detalles del libro -->
+        <div id="modal-detalles" class="modal-detalles">
+    <div class="modal-contenido">
+        <span class="cerrar-modal" id="cerrar-modal">&times;</span>
+        <div id="modal-info">
+            <!-- Aquí se cargará el contenido dinámico del libro -->
+        </div>
+    </div>
+</div>
+    <div class="footer">
+        © 2025 Biblioteca Digital
+    </div>
+    <script src="{% static 'hello/busqueda_libros.js' %}"></script>
+</body>
+</html>

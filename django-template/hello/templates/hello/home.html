@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Biblioteca Digital | UIS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'hello/home.css' %}">
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="logo-title">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Universidad_Industrial_de_Santander_logo.svg/2560px-Universidad_Industrial_de_Santander_logo.svg.png" alt="UIS Logo" class="uis-logo">
+                <span class="title">BiblioMatch</span>
+            </div>
+            <div class="user-actions">
+            <a href="{% url 'perfil_usuario' %}" class="logout-btn">Mi Perfil</a>
+            <form method="post" action="{% url 'logout' %}" class="logout-form">
+                {% csrf_token %}
+                <button type="submit" class="logout-btn">Cerrar sesión</button>
+            </form>
+            </div>
+        </div>
+    </div>
+    <main>
+        <section class="welcome">
+            <h2>Bienvenido a tu espacio de lectura 🧑‍🏫</h2>
+            <p>Explora, revisa y comparte conocimientos desde una plataforma académica diseñada para ti.</p>
+        </section>
+        <section class="card-container">
+            <div class="card">
+                <h3>Búsqueda de Libros 🔍</h3>
+                <p>Encuentra rápidamente libros según autor, título o palabra clave.</p>
+                <a href="{% url 'buscar_libros' %}" class="btn">Ir a Búsqueda</a>
+            </div>
+            <div class="card">
+                <h3>Historial de Búsqueda 📄</h3>
+                <p>Revisa y retoma tus consultas anteriores para continuar aprendiendo.</p>
+                <a href="{% url 'historial_busqueda' %}" class="btn btn-historial">Ver Historial</a>
+            </div>
+            <div class="card">
+                <h3>Reseñas ✏️</h3>
+                <p>Lee opiniones de otros estudiantes y deja tus propias valoraciones.</p>
+                <a href="{% url 'crear_resena' %}" class="btn btn-resenas">Ir a Reseñas</a>
+            </div>
+        </section>
+    </main>
+
+    <section class="bienvenida-mision">
+    <h1>Únete a nosotros en nuestra misión de hacer una educación accesible para todos.</h1>
+    <p class="subtitulo-mision">IMPULSA TU APRENDIZAJE CON NUESTROS RECURSOS</p>
+    <div class="mision-cards">
+        <div class="mision-card">
+            <!-- Icono casco académico -->
+            <svg width="64" height="64" fill="none" viewBox="0 0 64 64"><path d="M32 12L8 24l24 12 24-12L32 12z" stroke="#21b169" stroke-width="2"/><path d="M32 36v16" stroke="#21b169" stroke-width="2"/><path d="M16 32v8c0 8 16 8 16 8s16 0 16-8v-8" stroke="#2196f3" stroke-width="2"/></svg>
+            <h3>Te ayudamos en tu éxito académico</h3>
+            <p>Con nuestros recursos para estudiantes universitarios, te ofrecemos lo necesario para sobresalir en tus estudios o simplemente hacer tus tareas.</p>
+        </div>
+        <div class="mision-card">
+            <!-- Icono libro digital -->
+            <svg width="64" height="64" fill="none" viewBox="0 0 64 64"><rect x="12" y="16" width="40" height="32" rx="4" stroke="#21b169" stroke-width="2"/><path d="M32 16v32" stroke="#2196f3" stroke-width="2"/></svg>
+            <h3>Una biblioteca digital a tu alcance</h3>
+            <p>Lleva todos tus libros contigo y olvídate de llevar una mochila pesada, comienza tu sesión de estudio en tu ordenador y continúa en cualquier dispositivo.</p>
+        </div>
+        <div class="mision-card">
+            <!-- Icono cerebro inteligente -->
+            <svg width="64" height="64" fill="none" viewBox="0 0 64 64"><path d="M32 12a12 12 0 0 1 12 12v16a12 12 0 0 1-24 0V24A12 12 0 0 1 32 12z" stroke="#21b169" stroke-width="2"/><path d="M32 36v8" stroke="#2196f3" stroke-width="2"/><path d="M24 24h16" stroke="#2196f3" stroke-width="2"/></svg>
+            <h3>Aprende de forma más inteligente</h3>
+            <p>Encuentra contenido relevante para ti, deja de hojear de un lado para otro y busca con palabras clave, enfocándote en lo esencial para un aprendizaje más eficiente.</p>
+        </div>
+    </div>
+</section>
+
+    <footer>
+        <p>© 2025 Biblioteca Digital | UIS</p>
+    </footer>
+</body>
+</html>

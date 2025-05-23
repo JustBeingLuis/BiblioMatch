@@ -1,0 +1,107 @@
+
+.busqueda-container {
+    position: relative; /* Asegura que esté por encima de la textura */
+    z-index: 1;
+    max-width: 500px;
+    margin: 48px auto 0 auto;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px 0 rgba(0, 102, 51, 0.15), 0 1.5px 8px 0 #21b16933;
+    padding: 36px 28px 28px 28px;
+    text-align: center;
+}
+
+h2 {
+    color: #006633;
+    font-size: 1.5em;
+    margin-bottom: 18px;
+    font-weight: 700;
+}
+
+.btn-home {
+    display: inline-block;
+    margin-bottom: 18px;
+    background: #00823a;
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+.btn-home:hover {
+    background: #005e27;
+    color: #fff;
+}
+
+.historial-busqueda {
+    list-style: none;
+    padding: 0;
+    margin: 18px 0 24px 0;
+    text-align: left;
+}
+
+.historial-busqueda li {
+    background: #e6f4ea;
+    border-radius: 8px;
+    padding: 12px 18px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 1px 4px #21b16911;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+.historial-busqueda li:hover {
+    background: #c9f7e2;
+    box-shadow: 0 2px 8px #21b16922;
+}
+
+.historial-busqueda a {
+    color: #00823a;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.08em;
+    margin-right: 12px;
+    transition: color 0.2s;
+}
+.historial-busqueda a:hover {
+    color: #005e27;
+    text-decoration: underline;
+}
+
+.historial-busqueda span {
+    color: #888;
+    font-size: 0.97em;
+    margin-left: auto;
+}
+
+.footer {
+    width: 100vw;
+    background: #00823a;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    font-size: 1em;
+    z-index: 900;
+}
+
+@media (max-width: 600px) {
+    .busqueda-container {
+        padding: 18px 4vw 18px 4vw;
+        max-width: 98vw;
+    }
+    .historial-busqueda li {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 10px;
+    }
+    .historial-busqueda span {
+        margin-left: 0;
+        margin-top: 4px;
+    }
+}

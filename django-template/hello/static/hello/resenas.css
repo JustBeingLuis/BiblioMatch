@@ -1,0 +1,207 @@
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: url('https://www.transparenttextures.com/patterns/diamond-upholstery.png');
+    opacity: 0.8; 
+}
+
+body {
+    position: relative;
+    z-index: 1;
+    background: radial-gradient(circle at 60% 20%, #21b16922 0%, #006633 100%);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+.resena-main {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+}
+
+.resena-form-card {
+    background: #fff;
+    border-radius: 22px;
+    box-shadow: 0 8px 32px 0 rgba(33,177,105,0.10), 0 1.5px 8px #21b16922;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    padding: 15px 32px 15px 32px;
+    max-width: 480px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    border: 1.5px solid rgba(33, 177, 105, 0.13);
+    animation: fadeIn 0.7s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(24px);}
+    to { opacity: 1; transform: none;}
+}
+
+.resena-titulo {
+    color: #21b169;
+    font-size: 1.6em;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: center;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 8px #21b16911;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+}
+
+form label {
+    color: #006633;
+    font-weight: 600;
+    margin-bottom: 4px;
+    font-size: 1.05em;
+}
+
+form textarea,
+form select,
+form input[type="number"] {
+    width: 100%;
+    border-radius: 8px;
+    border: 1.5px solid #b0b8be;
+    padding: 10px 12px;
+    font-size: 1em;
+    margin-bottom: 8px;
+    background: rgba(248, 250, 248, 0.85);
+    transition: border 0.2s, box-shadow 0.2s;
+    resize: vertical;
+    box-sizing: border-box;
+    display: block;
+}
+
+form textarea:focus,
+form select:focus,
+form input[type="number"]:focus {
+    border: 1.5px solid #21b169;
+    outline: none;
+    box-shadow: 0 0 0 2px #21b16922;
+}
+
+.btn, .btn-resena, button[type="submit"] {
+    background: #21b169;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 0;
+    font-size: 1.1em;
+    font-weight: 600;
+    width: 100%;
+    margin-top: 10px;
+    box-shadow: 0 2px 8px #21b16922;
+    transition: background 0.2s, transform 0.2s;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+}
+
+.btn:hover, .btn-resena:hover, button[type="submit"]:hover {
+    background: #21996f;
+    transform: translateY(-2px) scale(1.03);
+    color: #fff;
+}
+
+.resena-reglas {
+    background: rgba(248, 250, 248, 0.85);
+    border-radius: 10px;
+    padding: 16px 18px 10px 18px;
+    margin-top: 18px;
+    box-shadow: 0 1px 6px #21b16911;
+}
+
+.resena-reglas strong {
+    color: #006633;
+    font-size: 1.1em;
+    font-weight: 700;
+}
+
+.resena-reglas ul {
+    margin-top: 8px;
+    margin-bottom: 0;
+    padding-left: 22px;
+    color: #444;
+    font-size: 1em;
+}
+
+/* Estrellas interactivas */
+.star-rating {
+    display: flex;
+    gap: 6px;
+    font-size: 2em;
+    margin: 8px 0 18px 0;
+    justify-content: flex-start;
+}
+
+.star {
+    color: #b0b8be;
+    cursor: pointer;
+    transition: color 0.2s;
+    user-select: none;
+}
+
+.star.filled {
+    color: #ffc107;
+    text-shadow: 0 2px 8px #ffc10755;
+}
+
+.btn-home {
+    display: inline-block;
+    margin-bottom: 18px;
+    background: #00823a;
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+.btn-home:hover {
+    background: #005e27;
+    color: #fff;
+}
+
+.footer {
+    width: 100vw;
+    background: #00823a;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    font-size: 1em;
+    z-index: 900;
+}
+
+@media (max-width: 700px) {
+    .resena-form-card {
+        max-width: 98vw;
+        padding: 18px 2vw;
+    }
+    .resena-main {
+        padding: 12px 0 32px 0;
+    }
+}

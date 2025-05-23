@@ -1,0 +1,36 @@
+<div class="modal-libro-info">
+    <h2 class="modal-titulo">{{ libro.titulo }}</h2>
+    <p class="modal-autor"><strong>Autor:</strong> {{ libro.autor }}</p>
+    {% if libro.portada %}
+        <div class="modal-portada">
+            <img src="{{ libro.portada.url }}" alt="Portada" />
+        </div>
+    {% endif %}
+    <p class="modal-descripcion">{{ libro.descripcion }}</p>
+    <hr>
+    <p class="modal-promedio">
+        <strong>Calificación promedio:</strong>
+        {% if promedio %}
+            <span class="promedio-num">{{ promedio|floatformat:1 }}</span> <span class="estrella">★</span> / 5
+        {% else %}
+            <span class="sin-calif">Sin calificaciones</span>
+        {% endif %}
+    </p>
+    <h3 class="modal-resenas-titulo">Reseñas</h3>
+    {% if resenas %}
+        <div class="resena-lista">
+            {% for resena in resenas %}
+                <div class="resena-item">
+                    <div class="resena-header">
+                        <strong class="resena-usuario">{{ resena.usuario.username }}</strong>
+                        <span class="calificacion">{{ resena.calificacion }} <span class="estrella">★</span></span>
+                        <span class="fecha">{{ resena.fecha|date:"d/m/Y H:i" }}</span>
+                    </div>
+                    <p class="resena-comentario">{{ resena.comentario }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="sin-resenas">No hay reseñas para este libro.</p>
+    {% endif %}
+</div>

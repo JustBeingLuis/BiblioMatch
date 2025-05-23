@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Usuario</title>
+    <link rel="stylesheet" href="{% static 'hello/registro.css' %}">
+</head>
+<body>
+    <div class="registro-container">
+    <h2>Crear cuenta</h2>
+    <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+            {% if field.errors %}
+                <div style="color: #bd3b3b; font-size: 0.95em;">{{ field.errors|striptags }}</div>
+            {% endif %}
+        {% endfor %}
+        <button type="submit" class="btn">Registrarse</button>
+    </form>
+    <a href="{% url 'login' %}" class="link-login">¿Ya tienes cuenta? Inicia sesión</a>
+</div>
+</body>
+</html>

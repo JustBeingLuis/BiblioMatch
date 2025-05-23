@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Historial de Búsqueda</title>
+    <link rel="stylesheet" href="{% static 'hello/historial_busqueda.css' %}">
+    <link rel="stylesheet" href="{% static 'hello/global_base.css' %}">
+</head>
+<body>
+    <div class="busqueda-container">
+        <h2>Historial de Búsqueda</h2>
+        <a href="{% url 'home' %}" class="btn-home">← Volver a inicio</a>
+        <ul class="historial-busqueda">
+            {% for item in historial %}
+                <li>
+                    <a href="{% url 'buscar_libros' %}?q={{ item.termino }}">{{ item.termino }}</a>
+                    <span style="color:#888; font-size:0.9em;">({{ item.fecha|date:"d/m/Y H:i" }})</span>
+                </li>
+            {% empty %}
+                <li>No hay búsquedas recientes.</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="footer">
+        © 2025 Biblioteca Digital
+    </div>
+</body>
+</html>

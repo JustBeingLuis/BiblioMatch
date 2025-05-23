@@ -1,0 +1,93 @@
+body {
+    background: radial-gradient(circle at 60% 20%, #21b16922 0%, #006633 100%);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.registro-container {
+    max-width: 420px;
+    margin: 40px auto 0 auto;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 32px #21b16922;
+    padding: 36px 32px 28px 32px;
+    text-align: center;
+    position: relative;
+}
+
+.registro-container h2 {
+    color: #006633;
+    font-size: 2em;
+    margin-bottom: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.registro-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 12px;
+    margin-bottom: 8px;
+}
+
+.registro-container label {
+    text-align: left;
+    color: #006633;
+    font-weight: 500;
+    margin-bottom: 2px;
+    margin-left: 2px;
+}
+
+.registro-container input[type="text"],
+.registro-container input[type="email"],
+.registro-container input[type="password"] {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #b0b8be;
+    font-size: 1em;
+    background: #f8faf8;
+    transition: border 0.2s;
+}
+
+.registro-container input:focus {
+    border: 1.5px solid #21b169;
+    outline: none;
+}
+
+.registro-container .btn {
+    background: #00823a;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 0;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.2s;
+    box-shadow: 0 2px 8px #21b16911;
+}
+
+.registro-container .btn:hover {
+    background: #21b169;
+}
+
+.registro-container .link-login {
+    display: block;
+    margin-top: 18px;
+    color: #006633;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1em;
+}
+
+.registro-container .link-login:hover {
+    text-decoration: underline;
+}
+
+.registro-container ul {
+    display: none; /* Oculta el texto de ayuda de Django */
+}

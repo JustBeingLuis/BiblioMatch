@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Iniciar sesión - BiblioMatch UIS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'hello/login.css' %}">
+</head>
+<body>
+    <div class="background-uis"></div>
+    <div class="login-container glass">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Universidad_Industrial_de_Santander_logo.svg/2560px-Universidad_Industrial_de_Santander_logo.svg.png" alt="UIS Logo" class="uis-logo">
+        <h2><span class="biblio">Bienvenido a la <span class="match">BiblioMatch</span></span></h2>
+        <h3 class="subtitulo-login">La biblioteca de referencias<br> bibliográficas virtual</h3>
+        
+        
+        <p>Ingresa con tu cuenta de usuario</p>
+        <form method="post" action="{% url 'login' %}" class="django-login-form">
+            {% csrf_token %}
+            {% for field in form %}
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+                {% if field.errors %}
+                    <div style="color: #bd3b3b; font-size: 0.95em;">{{ field.errors|striptags }}</div>
+                {% endif %}
+            {% endfor %}
+            <button type="submit" class="btn">Ingresar</button>
+        </form>
+        <a href="{% url 'registro_usuario' %}" class="btn-home">¿No tienes cuenta? Regístrate</a>
+        <hr class="login-divider">
+        <p> O accede con tu cuenta personal de Google</p>
+        <a href="{% url 'social:begin' 'google-oauth2' %}" class="google-btn">
+            <span class="google-icon-bg">
+                <img src="https://cdn.pixabay.com/photo/2021/05/24/09/15/google-logo-6278331_1280.png" class="google-icon" alt="Google">
+            </span>
+            <span class="google-text">Ingresar con Google</span>
+        </a>
+        <div class="footer-login">
+            <span>© 2025 BiblioMatch | UIS</span>
+        </div>
+    </div>
+</body>
+</html>
