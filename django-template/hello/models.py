@@ -19,6 +19,7 @@ class Libro(models.Model):
     anio_publicacion = models.IntegerField()
     genero = models.CharField(max_length=50)
     portada = models.ImageField(upload_to='portadas/', null=True, blank=True)
+    cantidad_disponible = models.PositiveIntegerField(default=1, verbose_name="Cantidad disponible")
 
     def obtener_promedio_calificacion(self):
         reseñas = self.resena_set.all()

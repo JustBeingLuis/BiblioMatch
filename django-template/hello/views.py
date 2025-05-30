@@ -43,12 +43,20 @@ class CustomLoginView(LoginView):
     template_name = 'hello/login.html'
 
 def login_view(request):
-    """
-    Renderiza la página de login si el usuario no está autenticado.
-    """
     if request.user.is_authenticated:
         return redirect('home')
-    form = AuthenticationForm()
+
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('home')
+        else:
+            messages.error(request, "Usuario o contraseña incorrectos.")
+    else:
+        form = AuthenticationForm()
+
     return render(request, 'hello/login.html', {'form': form})
 
 # ==========================

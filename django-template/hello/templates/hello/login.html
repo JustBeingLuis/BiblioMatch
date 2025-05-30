@@ -15,6 +15,16 @@
         <h3 class="subtitulo-login">La biblioteca de referencias<br> bibliográficas virtual</h3>
         
         
+        {% if messages %}
+            {% for message in messages %}
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                    <div style="color: #bd3b3b; font-size: 0.95em; margin-bottom: 10px; text-align: center;">
+                        {{ message }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
         <p>Ingresa con tu cuenta de usuario</p>
         <form method="post" action="{% url 'login' %}" class="django-login-form">
             {% csrf_token %}
@@ -27,6 +37,7 @@
             {% endfor %}
             <button type="submit" class="btn">Ingresar</button>
         </form>
+
         <a href="{% url 'registro_usuario' %}" class="btn-home">¿No tienes cuenta? Regístrate</a>
         <hr class="login-divider">
         <p> O accede con tu cuenta personal de Google</p>
@@ -36,6 +47,7 @@
             </span>
             <span class="google-text">Ingresar con Google</span>
         </a>
+
         <div class="footer-login">
             <span>© 2025 BiblioMatch | UIS</span>
         </div>

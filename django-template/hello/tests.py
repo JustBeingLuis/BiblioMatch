@@ -28,5 +28,5 @@ class TestViews(TestCase):
     def test_not_found_url(self):
         response = self.client.get('/a-url-that-does-not-exist')
 
-        self.assertEquals(response.status_code, 404)
+        self.assertEqual(response.status_code, 404)
  
