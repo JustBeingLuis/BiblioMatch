@@ -1,19 +1,19 @@
 # BiblioMatch UIS
 
-BiblioMatch UIS es una plataforma web desarrollada con Django que permite a estudiantes y usuarios gestionar, buscar y reseñar libros en una biblioteca digital académica. El sistema está diseñado para facilitar el acceso a recursos bibliográficos, fomentar la interacción mediante reseñas y calificaciones, y ofrecer una experiencia moderna y segura de gestión de usuarios.
+BiblioMatch UIS is a web platform developed with Django that allows students and users to manage, search for, and review books in an academic digital library. The system is designed to facilitate access to bibliographic resources, encourage interaction through reviews and ratings, and offer a modern and secure user management experience.
 
-## Características principales
+## Key Features
 
-- **Autenticación de usuarios**: Registro, inicio de sesión tradicional y autenticación mediante Google OAuth2.
-- **Gestión de libros**: Alta, visualización y búsqueda avanzada de libros por título, autor o descripción.
-- **Historial de búsqueda**: Cada usuario puede consultar su historial de términos buscados.
-- **Sistema de reseñas**: Los usuarios pueden crear, editar y eliminar reseñas de libros, así como calificar con estrellas.
-- **Perfil de usuario**: Visualización y edición de datos personales.
-- **Panel de administración**: Gestión de libros y reseñas desde el admin de Django.
-- **Carga de portadas**: Soporte para imágenes de portada de libros.
-- **Frontend moderno**: Interfaz responsiva y atractiva, con modales y efectos visuales.
+- **User Authentication:** Registration, traditional login, and authentication via Google OAuth2.
+- **Book Management:** Create, view, and perform advanced search of books by title, author, or description.
+- **Search History:** Each user can view their history of searched terms.
+- **Review System:** Users can create, edit, and delete book reviews, as well as rate books with stars.
+- **User Profile:** View and edit personal information.
+- **Admin Panel:** Manage books and reviews through Django admin.
+- **Cover Uploads:** Support for book cover images.
+- **Modern Frontend:** Responsive and attractive interface with modals and visual effects.
 
-## Estructura del proyecto
+## Project Structure
 
 ```
 django-template/
@@ -51,73 +51,68 @@ django-template/
     └── wsgi.py
 ```
 
-## Instalación y configuración
+## Installation and Setup
 
-1. **Clona el repositorio:**
+1. **Clone the repository:**
    ```sh
-   git clone https://github.com/tu_usuario/bibliomatch-uis.git
+   git clone https://github.com/your_username/bibliomatch-uis.git
    cd bibliomatch-uis/django-template
-   ```
 
-2. **Crea y activa un entorno virtual:**
+
+2. **Create and activate a virtual environment::**
    ```sh
    python -m venv .venv
    source .venv/bin/activate  # En Windows: .venv\Scripts\activate
    ```
 
-3. **Instala las dependencias:**
+3. **Install dependencies:**
    ```sh
    pip install -r requirements.txt
    ```
 
-4. **Configura las variables de entorno para Google OAuth2 (opcional):**
+4. **Configure environment variables for Google OAuth2 (optional)**
    - Crea un archivo `google_oauth.txt` en la raíz del proyecto con el siguiente contenido:
      ```
      CLIENT_ID=tu_client_id_google
      CLIENT_SECRET=tu_client_secret_google
      ```
 
-5. **Realiza las migraciones y crea un superusuario:**
+5. **Apply migrations and create a superuser:**
    ```sh
    python manage.py migrate
    python manage.py createsuperuser
    ```
 
-6. **Ejecuta el servidor de desarrollo:**
+6. **Run the development server:**
    ```sh
    python manage.py runserver
    ```
 
-7. **Accede a la aplicación:**
+7. **Access the application:**
    - Navega a [http://localhost:8000/](http://localhost:8000/) para usar la plataforma.
    - El panel de administración está en [http://localhost:8000/admin/](http://localhost:8000/admin/).
 
-## Pruebas
+## Testing
 
-El proyecto incluye pruebas unitarias para modelos y vistas. Puedes ejecutarlas con:
+The project includes unit tests for models and views. You can run them with:
 
 ```sh
 python manage.py test
 ```
-o usando pytest si lo prefieres:
+or using pytest:
 
 ```sh
 pytest
 ```
 
-## Tecnologías utilizadas
+## 🛠️ Technologies Used
 
 - **Backend:** Django 5.x, Python 3.11+
 - **Frontend:** HTML5, CSS3, JavaScript (vanilla)
-- **Autenticación social:** [python-social-auth](https://python-social-auth.readthedocs.io/)
-- **Base de datos:** SQLite (por defecto, fácilmente adaptable a otros motores)
+- **Social Authentication:** [python-social-auth](https://python-social-auth.readthedocs.io/)
+- **Database:** SQLite (by default, easily adaptable to other engines)
 - **Testing:** Django TestCase, Pytest
 
+## 👨‍🎓 Credits
 
-## Créditos
-
-Desarrollado por Luis Toscano-Palomino para la Universidad Industrial de Santander (UIS).
-
----
-
-¡Contribuciones y sugerencias son bienvenidas!
+Developed by Luis Toscano-Palomino for the Industrial University of Santander (UIS).
